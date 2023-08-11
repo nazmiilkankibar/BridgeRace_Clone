@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+BridgeRace_Clone/[Ll]ibrary/
+BridgeRace_Clone/[Tt]emp/
+BridgeRace_Clone/[Oo]bj/
+BridgeRace_Clone/[Bb]uild/
+BridgeRace_Clone/[Bb]uilds/
+BridgeRace_Clone/[Ll]ogs/
+BridgeRace_Clone/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
