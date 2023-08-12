@@ -5,16 +5,24 @@ using UnityEngine;
 public class TakeBrick : MonoBehaviour
 {
     private int takenBrick;
-    private Transform inventory;
+    private Transform inventoryPosition;
+    public List<GameObject> brickInventory = new List<GameObject>();
     private void Start()
     {
-        inventory = transform.GetChild(2);
+        inventoryPosition = transform.GetChild(2);
+    }
+    public GameObject AssignBrickToBridge()
+    {
+        GameObject brick = brickInventory[brickInventory.Count - 1];
+        brickInventory.Remove(brick);
+        return brick;
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("BlueBrick"))
         {
-            other.GetComponent<Brick>().SetMoveTarget(inventory, takenBrick);
+            other.GetComponent<Brick>().SetMoveTarget(inventoryPosition, brickInventory.Count);
+            brickInventory.Add(other.gameObject);
             takenBrick++;
         }
     }

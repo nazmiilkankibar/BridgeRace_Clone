@@ -8,6 +8,7 @@ TagManager:
   - RedBrick
   - GreenBrick
   - BlueBrick
+  - Bridge
   layers:
   - Default
   - TransparentFX

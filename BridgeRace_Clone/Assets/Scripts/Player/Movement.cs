@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
         float magnitude = Mathf.Clamp01(movement.magnitude) * speed;
         movement.Normalize();
         transform.Translate(movement * magnitude * Time.deltaTime, Space.World);
+        //transform.position += movement * magnitude * Time.deltaTime;
         if (movement != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
