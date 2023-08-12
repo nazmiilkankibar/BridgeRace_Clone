@@ -19,11 +19,32 @@ public class TakeBrick : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BlueBrick"))
+        switch (transform.tag)
         {
-            other.GetComponent<Brick>().SetMoveTarget(inventoryPosition, brickInventory.Count);
-            brickInventory.Add(other.gameObject);
-            takenBrick++;
+            case "Player":
+                if (other.CompareTag("BlueBrick"))
+                {
+                    other.GetComponent<Brick>().SetMoveTarget(inventoryPosition, brickInventory.Count);
+                    brickInventory.Add(other.gameObject);
+                    takenBrick++;
+                    
+                }
+                break;
+            case "Rival":
+                if (other.CompareTag("RedBrick"))
+                {
+                    other.GetComponent<Brick>().SetMoveTarget(inventoryPosition, brickInventory.Count);
+                    brickInventory.Add(other.gameObject);
+                    RedRival redRival = transform.GetComponent<RedRival>();
+                    redRival.bricksOnFloor.Remove(other.transform);
+                    redRival.target = null;
+                    redRival.targetTakeBrick--;
+                    redRival.inventory.Add(other.gameObject);
+                }
+                break;
+            default:
+                break;
         }
+        
     }
 }

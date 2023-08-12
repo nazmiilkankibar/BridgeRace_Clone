@@ -9,6 +9,7 @@ TagManager:
   - GreenBrick
   - BlueBrick
   - Bridge
+  - Rival
   layers:
   - Default
   - TransparentFX

@@ -35,6 +35,7 @@ public class Brick : MonoBehaviour
         transform.parent = moveTarget;
         target = moveTarget;
         canMovePlayer = true;
+        transform.tag = "Untagged";
     }
     public void MoveToBridge(Transform parent, Vector3 position)
     {

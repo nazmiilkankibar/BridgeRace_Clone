@@ -10,13 +10,14 @@ public class Bridge : MonoBehaviour
     float y;
     public BoxCollider stairEdge;
     private bool canTake;
+    public string ownColor;
     private void Start()
     {
         canTake = true;
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && other.GetComponent<TakeBrick>().brickInventory.Count > 0 && canTake)
+        if (other.CompareTag("Player") && other.CompareTag("AI") && other.GetComponent<TakeBrick>().brickInventory.Count > 0 && canTake)
         {
             takeRate += Time.deltaTime;
             if (takeRate >= .1f)
@@ -42,6 +43,20 @@ public class Bridge : MonoBehaviour
                 takeRate = 0;
                 z = 0;
                 y = 0;
+                //switch (brick.tag)
+                //{
+                //    case "Red":
+                //        ownColor = "Red";
+                //        break;
+                //    case "Green":
+                //        ownColor = "Green";
+                //        break;
+                //    case "Blue":
+                //        ownColor = "Blue";
+                //        break;
+                //    default:
+                //        break;
+                //}
             }
         }
     }
